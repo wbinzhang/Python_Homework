@@ -19,7 +19,7 @@ if __name__ == "__main__":
     m = 1
     n = 0
     # 循环判断指导正确
-    while m > 0:
+    while m > 0:     # 可以去掉这个条件，改为 True，然后在guess_num返回值为Flase时，使用break终止循环。
         num_guess = int(input('请猜想并输入一个0-100之间的数字：\n'))
         if 1 <= num_guess <= 100:
             m = guess_num(num_guess, num_real)
