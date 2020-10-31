@@ -20,7 +20,7 @@ class IterFibonacci(object):
         return self
 
     def __next__(self):             # 定义next方法
-        while True:
+        while True:        # //尽可能少用while，思考一下，改为for
             if self.now_num == 0:               # 判断第一次计算，输出斐波那契数列的第一个数（0）
                 self.now_num += 1               # 计算次数加1
                 return self.val_1   
@@ -38,7 +38,7 @@ class IterFibonacci(object):
 使用生成器实现斐波那契数列
 定义生成器实现斐波那契数列的类
 '''
-class GenFibonacci(object):
+class GenFibonacci(object):    # 使用生成器函数来定义，不需要写类
     def __init__(self, gen_out_num=10):             # 初始化变量
         self.val_1 = 0              # 定义斐波那契数列的第一个初始值
         self.val_2 = 1              # 定义斐波那契数列的第二个初始值
@@ -62,7 +62,7 @@ class GenFibonacci(object):
 使用矩阵实现斐波那契数列
 定义矩阵实现斐波那契数列的类
 '''
-class MatFibonacci(object):
+class MatFibonacci(object):   # 
     def __init__(self, gen_out_num=10):             # 初始化变量
         self.creat_matrix = np.array([1,0])             # 定义初始向量[1,0]
         self.default_matrix = np.array([[1,1],[1,0]])               # 定义参数矩阵
@@ -70,7 +70,7 @@ class MatFibonacci(object):
         self.now_num = 0                # 定义计算斐波那契数列的个数
 
     def mat_creat_fibonacci(self):              # 定义矩阵计算斐波那契数列的函数
-        while True:
+        while True:    # 同前建议
             if self.now_num == 0:               # 判断第一次计算，输出斐波那契数列的第一个数（0）
                 self.now_num += 1               # 计算次数加1
                 yield self.creat_matrix[1]              # yield返回斐波那契数列的第一个数
